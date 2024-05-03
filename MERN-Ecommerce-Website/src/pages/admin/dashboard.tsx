@@ -4,7 +4,6 @@ import { FaRegBell } from "react-icons/fa";
 import { HiTrendingDown, HiTrendingUp } from "react-icons/hi";
 import AdminSidebar from "../../Components/admin/AdminSidebar";
 import { BarChart, DoughnutChart } from "../../Components/admin/Charts";
-
 import Table from "../../Components/admin/DashboardTable";
 import data from "../../assets/data.json";
 
@@ -176,4 +175,3 @@ const CategoryItem = ({ color, value, heading }: CategoryItemProps) => (
 );
 
 export default Dashboard;
-
