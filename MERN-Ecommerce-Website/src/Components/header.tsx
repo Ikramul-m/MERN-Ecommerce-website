@@ -1,9 +1,13 @@
+import { useState } from "react"
 import { FaSearch, FaShoppingBag, FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
 const user = { _id: "gsgtg", role: "user" }
 
 const Header = () => {
+
+    const [isOpen, setIsOpen] = useState<boolean>(false)
+
     return (
         <nav>
             <Link to={"/"}>Home</Link>
@@ -13,7 +17,7 @@ const Header = () => {
             {
                 user?._id ? (
                     <>
-                        <button>
+                        <button onClick={() => setIsOpen((prev) => !prev)}>
                             <FaUser />
                         </button>
                         <dialog open={true}>
