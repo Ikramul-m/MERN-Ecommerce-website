@@ -1,7 +1,7 @@
-import { FaSearch, FaShoppingBag, FaSignInAlt } from "react-icons/fa"
+import { FaSearch, FaShoppingBag, FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa"
 import { Link } from "react-router-dom"
 
-const user = { _id: "" }
+const user = { _id: "", role: "user" }
 
 const Header = () => {
     return (
@@ -13,8 +13,27 @@ const Header = () => {
             {
                 user?._id ? (
                     <>
+                        <button>
+                            <FaUser />
+                        </button>
+                        <dialog open={true}>
+                            <div>
+                                {
+                                    user.role === "admin" && (
+                                        <Link to={"/admin/dashboard"}>Admin</Link>
+                                    )
+                                }
+
+                                <Link to="/orders">Orders</Link>
+                                <button>
+                                    <FaSignOutAlt />
+                                </button>
+                            </div>
+                        </dialog>
                     </>
-                ) : (<link ><FaSignInAlt /></link>)
+                ) : (
+                    <Link to={"/login"}><FaSignInAlt /></Link>
+                )
             }
         </nav>
     )
