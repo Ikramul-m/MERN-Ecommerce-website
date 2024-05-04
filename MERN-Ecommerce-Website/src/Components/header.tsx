@@ -9,7 +9,7 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false)
 
     return (
-        <nav>
+        <nav className="header">
             <Link to={"/"}>Home</Link>
             <Link to={"/search"}><FaSearch /></Link>
             <Link to={"/cart"}><FaShoppingBag /></Link>
@@ -20,7 +20,7 @@ const Header = () => {
                         <button onClick={() => setIsOpen((prev) => !prev)}>
                             <FaUser />
                         </button>
-                        <dialog open={true}>
+                        <dialog open={isOpen}>
                             <div>
                                 {
                                     user.role === "admin" && (
