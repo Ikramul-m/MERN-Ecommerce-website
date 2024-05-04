@@ -1,8 +1,8 @@
 import { ReactElement, useState } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Column } from "react-table";
-import AdminSidebar from "../../components/admin/AdminSidebar";
-import TableHOC from "../../components/admin/TableHOC";
+import AdminSidebar from "../../Components/admin/AdminSidebar";
+import TableHOC from "../../Components/admin/TableHOC";
 
 interface DataType {
   avatar: ReactElement;
@@ -88,7 +88,7 @@ const arr: Array<DataType> = [
 ];
 
 const Customers = () => {
-  const [rows, setRows] = useState<DataType[]>(arr);
+  const [rows,] = useState<DataType[]>(arr);
 
   const Table = TableHOC<DataType>(
     columns,

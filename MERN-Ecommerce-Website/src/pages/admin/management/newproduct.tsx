@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import AdminSidebar from "../../../components/admin/AdminSidebar";
+import AdminSidebar from "../../../Components/admin/AdminSidebar";
 
 const NewProduct = () => {
   const [name, setName] = useState<string>("");
@@ -7,7 +7,7 @@ const NewProduct = () => {
   const [price, setPrice] = useState<number>(1000);
   const [stock, setStock] = useState<number>(1);
   const [photoPrev, setPhotoPrev] = useState<string>("");
-  const [photo, setPhoto] = useState<File>();
+  const [, setPhoto] = useState<File>();
 
   const changeImageHandler = (e: ChangeEvent<HTMLInputElement>) => {
     const file: File | undefined = e.target.files?.[0];
