@@ -7,12 +7,15 @@ const user = { _id: "gsgtg", role: "user" }
 const Header = () => {
 
     const [isOpen, setIsOpen] = useState<boolean>(false)
+    const logoutHandler = () => {
+        setIsOpen(false)
+    }
 
     return (
         <nav className="header">
-            <Link to={"/"}>Home</Link>
-            <Link to={"/search"}><FaSearch /></Link>
-            <Link to={"/cart"}><FaShoppingBag /></Link>
+            <Link to={"/"} onClick={() => setIsOpen(false)}>Home</Link>
+            <Link to={"/search"} onClick={() => setIsOpen(false)}><FaSearch /></Link>
+            <Link to={"/cart"} onClick={() => setIsOpen(false)}><FaShoppingBag /></Link>
 
             {
                 user?._id ? (
@@ -24,19 +27,19 @@ const Header = () => {
                             <div>
                                 {
                                     user.role === "admin" && (
-                                        <Link to={"/admin/dashboard"}>Admin</Link>
+                                        <Link to={"/admin/dashboard"} onClick={() => setIsOpen(false)}>Admin</Link>
                                     )
                                 }
 
-                                <Link to="/orders">Orders</Link>
-                                <button>
+                                <Link to="/orders" onClick={() => setIsOpen(false)}>Orders</Link>
+                                <button onClick={logoutHandler}>
                                     <FaSignOutAlt />
                                 </button>
                             </div>
                         </dialog>
                     </>
                 ) : (
-                    <Link to={"/login"}><FaSignInAlt /></Link>
+                    <Link to={"/login"} onClick={() => setIsOpen(false)}><FaSignInAlt /></Link>
                 )
             }
         </nav>
